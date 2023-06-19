@@ -84,6 +84,7 @@ async {
       "Quantity":"${homeModel.quan}",
       "Desc":"${homeModel.desc}",
       "Rate":"${homeModel.rate}",
+      "Image":"${homeModel.image}",
 
     });
   }

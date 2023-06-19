@@ -17,70 +17,71 @@ class _SigninState extends State<Signin> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: Column(
-            children: [
-              TextField(
-                controller: txtemail,
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(),
-                  enabledBorder: OutlineInputBorder(),
-                  hintText: 'Enter Email',
-                  label: Text("Email")
-                ),
-              ),
-              SizedBox(height: 20,),
-              TextField(
-                controller: txtpassword,
-                decoration: InputDecoration(
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: [
+          Center(child: Image.network("https://static.vecteezy.com/system/resources/previews/000/251/695/original/grocery-shopping-bag-vector-illustration.jpg")),
+          Container(
+            height: double.infinity,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                color: Colors.blue.shade50.withOpacity(0.75)
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+
+                TextField(
+                  controller: txtemail,
+                  decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(),
-                    hintText: 'Enter Password',
-                    label: Text("Password"),
+                    hintText: 'Enter Email',
+                    label: Text("Email"),
+                    labelStyle: TextStyle(color: Colors.black),
+                  ),
                 ),
-              ),
-              SizedBox(height: 30,),
-              TextButton(onPressed: () {
-                Get.toNamed('/signup');
+                SizedBox(height: 20,),
+                TextField(
+                  controller: txtpassword,
+                  decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(),
+                      hintText: 'Enter Password',
+                      label: Text("Password"),
+                    labelStyle: TextStyle(color: Colors.black),
+                  ),
+                ),
+                SizedBox(height: 30,),
+                TextButton(onPressed: () {
+                  Get.toNamed('/signup');
 
-              },child: Text("Don't have account? Sign Up"),),
-              SizedBox(height: 20,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(onPressed: () async {
-                    String? msg=await FirebaseHelper.firehelper.Googlesignin();
-                    if(msg=="success")
-                      {
-                        Get.toNamed('/home');
-                      }
-
-                  }, child: Text("GOOGLE")),
-                  ElevatedButton(onPressed: () async {
-                    String email=txtemail.text;
-                    String password=txtpassword.text;
-                    String? isLogin=await FirebaseHelper.firehelper.SignIn(email: email, password: password);
-                    if(isLogin=="success")
-                      {
-                        Get.snackbar("firebase", "successful");
-                        Get.offAndToNamed('/home');
-                      }
-                    else{
-                      Get.snackbar("$isLogin","");
+                },child: Text("Don't have account? Sign Up"),),
+                SizedBox(height: 20,),
+                ElevatedButton(onPressed: () async {
+                  String email=txtemail.text;
+                  String password=txtpassword.text;
+                  String? isLogin=await FirebaseHelper.firehelper.SignIn(email: email, password: password);
+                  if(isLogin=="success")
+                    {
+                      Get.snackbar("firebase", "successful");
+                      Get.offAndToNamed('/home');
                     }
+                  else{
+                    Get.snackbar("$isLogin","");
+                  }
 
 
 
-                  }, child: Text("Log in"))
+                }, child: Text("Log in"))
 
-                ],
-              )
-
-            ],
+              ],
+            ),
           ),
-        ),
+        ],
       ),
 
     ));

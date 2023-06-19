@@ -23,9 +23,10 @@ class _SecondState extends State<Second> {
         child: Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue.shade900,
-        title: Text("Add Screen"),
+        title: Text("Add Item"),
 
       ),
+      backgroundColor: Colors.blue.shade50,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -102,26 +103,34 @@ class _SecondState extends State<Second> {
               SizedBox(
                 height: 30,
               ),
-              ElevatedButton(
-                  onPressed: () async {
+
+              InkWell(
+                onTap: () async {
                    await FirebaseHelper.firehelper.insert(
-                        Name: txtname.text,
-                        Price: txtprice.text,
-                        Quantity: txtqua.text,
-                        Desc: txtdesc.text,
-                        Rate: txtrate.text,
-                        Image: txtimage.text,
+                                 Name: txtname.text,
+                                Price: txtprice.text,
+                                Quantity: txtqua.text,
+                                Desc: txtdesc.text,
+                                Rate: txtrate.text,
+                                Image: txtimage.text,
+                             );
+                           Get.back();
 
-                     );
-                   Get.back();
-
-
-
-
-
-                  },
-
-                  child: Text("Add"))
+                },
+                child: Container(
+                  height: 40,
+                  width: 80,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(width: 2,color: Colors.blue.shade900),
+                    color: Colors.blue.shade100
+                  ),
+                  child: Center(
+                    child: Text("Add",style: TextStyle(color: Colors.blue.shade900,fontWeight: FontWeight.bold,fontSize: 17),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),

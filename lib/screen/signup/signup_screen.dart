@@ -16,39 +16,50 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              TextField(
-                controller: txtemail,
-                decoration: InputDecoration(
+      body: Stack(
+        children: [
+          Center(child: Image.network("https://static.vecteezy.com/system/resources/previews/000/251/695/original/grocery-shopping-bag-vector-illustration.jpg")),
+          Container(
+            height: double.infinity,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                color: Colors.blue.shade50.withOpacity(0.75)
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  controller: txtemail,
+                  decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(),
+                      hintText: 'Enter Email',
+                      label: Text("Email")
+                  ),
+                ),
+                SizedBox(height: 20,),
+                TextField(
+                  controller: txtpassword,
+                  decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(),
-                    hintText: 'Enter Email',
-                    label: Text("Email")
+                    hintText: 'Enter Password',
+                    label: Text("Password"),
+                  ),
                 ),
-              ),
-              SizedBox(height: 20,),
-              TextField(
-                controller: txtpassword,
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(),
-                  enabledBorder: OutlineInputBorder(),
-                  hintText: 'Enter Password',
-                  label: Text("Password"),
-                ),
-              ),
-              SizedBox(height: 20,),
-              ElevatedButton(onPressed: () {
-                FirebaseHelper.firehelper.SignUp(email: txtemail.text, password: txtpassword.text);
-                Get.toNamed('/signin');
+                SizedBox(height: 20,),
+                ElevatedButton(onPressed: () {
+                  FirebaseHelper.firehelper.SignUp(email: txtemail.text, password: txtpassword.text);
+                  Get.toNamed('/signin');
 
-              }, child: Text("Sign up"))
-            ],
+                }, child: Text("Sign up"))
+              ],
+            ),
           ),
-        ),
+        ],
       ),
 
     ));

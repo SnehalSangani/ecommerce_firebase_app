@@ -25,8 +25,16 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     Timer(Duration(seconds: 3),() => Get.offAndToNamed(islogin==false?'/signin':'/home'),);
     return SafeArea(child: Scaffold(
-      body: Center(child: FlutterLogo(size: 50,)),
-
+      backgroundColor: Colors.blue.shade50,
+      body: Center(
+        child: Container(
+            height: 200,
+            width: 200,
+            child: Image.network(
+              "https://webstockreview.net/images/grocery-clipart-vector-14.png",
+              fit: BoxFit.cover,
+            )),
+      ),
     ));
   }
 }
