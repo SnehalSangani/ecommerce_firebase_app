@@ -15,8 +15,8 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 <P>
-  <img src="https://github.com/SnehalSangani/ecommerce_firebase_app/assets/114208600/91bacd19-091d-43f7-81e4-04513b1c8185" height=35% widht=22%>
-  <img src="https://github.com/SnehalSangani/ecommerce_firebase_app/assets/114208600/96db22cc-a316-4f1e-be38-9cdd9dad615d" height=35% width=22%>
+  <img src="https://github.com/SnehalSangani/ecommerce_firebase_app/assets/114208600/91bacd19-091d-43f7-81e4-04513b1c8185" height=35% width=22%>
   <img src="https://github.com/SnehalSangani/ecommerce_firebase_app/assets/114208600/e0af5663-a07b-445a-8844-52515c82db13" height=35% width=22%>
+  <img src="github.com/SnehalSangani/ecommerce_firebase_app/assets/114208600/96db22cc-a316-4f1e-be38-9cdd9dad615d" height=35% width=22%>
 
 </P>
